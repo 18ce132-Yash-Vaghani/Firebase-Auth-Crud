@@ -8,6 +8,8 @@ class SignInPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  //bool _validate = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,7 @@ class SignInPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Padding(padding: EdgeInsets.only(top:10)),
+          Padding(padding: EdgeInsets.only(top: 10)),
           TextField(
             controller: emailController,
             decoration: InputDecoration(
@@ -28,6 +30,7 @@ class SignInPage extends StatelessWidget {
               height: 2.0,
             ),
           ),
+
           Padding(padding: EdgeInsets.all(10)),
           TextField(
             obscureText: true,
@@ -41,6 +44,7 @@ class SignInPage extends StatelessWidget {
               height: 2.0,
             ),
           ),
+
           // ignore: deprecated_member_use
           RaisedButton(
             onPressed: () {
@@ -53,6 +57,9 @@ class SignInPage extends StatelessWidget {
           // ignore: deprecated_member_use
           RaisedButton(
             onPressed: () {
+              /* passwordController.text.isEmpty
+                  ? _validate = true
+                  : _validate = false; */
               context.read<AuthenticationService>().signUp(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim());
@@ -63,4 +70,11 @@ class SignInPage extends StatelessWidget {
       ),
     );
   }
+
+  /* String validatePassword(String value) {
+    if (!(value.length > 5) && value.isNotEmpty) {
+      return "Password should contain more than 5 characters";
+    }
+    return null;
+  } */
 }

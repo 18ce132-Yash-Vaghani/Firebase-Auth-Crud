@@ -11,8 +11,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 String uid;
 String uemail;
 
-void userIdAndEmail(String id, String email){
-
+void userIdAndEmail(String id, String email) {
   uid = id;
   uemail = email;
 }
@@ -33,8 +32,7 @@ class HomePageState extends State<HomePage> {
   String name;
   String todo;
 
-
- /*  final FirebaseAuth _auth = FirebaseAuth.instance;
+  /*  final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> getCurrentUser() async {
     
     final User user = await _auth.currentUser;
@@ -285,7 +283,7 @@ class HomePageState extends State<HomePage> {
     print("todo: " + snapshot.data()['todo']);
     print("collection Id: " + uid);
     print("Document Id: " + id);
-    print("User Email: "+ uemail);
+    print("User Email: " + uemail);
   }
 
   void updateData(DocumentSnapshot doc) async {
@@ -298,7 +296,12 @@ class HomePageState extends State<HomePage> {
   }
 
   void deleteData(DocumentSnapshot doc) async {
-    await db.collection('CRUD').doc(uid.toString()).collection(uid.toString()).doc(doc.id).delete();
+    await db
+        .collection('CRUD')
+        .doc(uid.toString())
+        .collection(uid.toString())
+        .doc(doc.id)
+        .delete();
     setState(() => id = null);
   }
 }

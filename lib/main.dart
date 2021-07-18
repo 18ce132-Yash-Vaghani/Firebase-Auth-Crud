@@ -52,15 +52,15 @@ class AuthenticationWrapper extends StatelessWidget {
 
     // ignore: unnecessary_null_comparison
     if (firebaseUser != null) {
-    final User user = _auth.currentUser;
-    uid = user.uid;
-    final uemail = FirebaseAuth.instance.currentUser.email;
-    print("Email: "+ uemail.toString());
-    print(uid);
-    print(uemail);
-    userIdAndEmail(uid.toString(), uemail.toString());
+      final User user = _auth.currentUser;
+      uid = user.uid;
+      final uemail = FirebaseAuth.instance.currentUser.email;
+      print("Email: " + uemail.toString());
+      print(uid);
+      print(uemail);
+      userIdAndEmail(uid.toString(), uemail.toString());
 
-    return HomePage();
+      return HomePage();
     }
     return SignInPage();
   }
