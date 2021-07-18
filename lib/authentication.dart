@@ -9,7 +9,12 @@ class AuthenticationService {
   Stream<User> get onAuthStateChanged => _firebaseAuth.authStateChanges();
 
   Future<void> signout() async {
-    await _firebaseAuth.signOut();
+    FirebaseAuth.instance.signOut();
+    User user = _firebaseAuth.currentUser;
+    print("uid: " + user.uid);
+    if (user != null) {
+      print("User logged Out");
+    }
   }
 
   Future<String> signIn({String email, String password}) async {
