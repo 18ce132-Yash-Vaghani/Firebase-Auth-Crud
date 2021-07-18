@@ -12,21 +12,33 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("LogIn/SignUp"),
+        title: Text("SignUp/SignIn Firebase Authentication"),
       ),
       body: Column(
         children: [
+          Padding(padding: EdgeInsets.only(top:10)),
           TextField(
             controller: emailController,
             decoration: InputDecoration(
+              border: OutlineInputBorder(),
               labelText: "Email",
             ),
+            style: TextStyle(
+              fontSize: 20.0,
+              height: 2.0,
+            ),
           ),
+          Padding(padding: EdgeInsets.all(10)),
           TextField(
             obscureText: true,
             controller: passwordController,
             decoration: InputDecoration(
+              border: OutlineInputBorder(),
               labelText: "Password",
+            ),
+            style: TextStyle(
+              fontSize: 20.0,
+              height: 2.0,
             ),
           ),
           // ignore: deprecated_member_use

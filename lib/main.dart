@@ -45,11 +45,22 @@ class AuthenticationWrapper extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    String uid;
+    String uemail;
     final firebaseUser = context.watch<User>();
+    final FirebaseAuth _auth = FirebaseAuth.instance;
 
     // ignore: unnecessary_null_comparison
     if (firebaseUser != null) {
-      return HomePage();
+    final User user = _auth.currentUser;
+    uid = user.uid;
+    final uemail = FirebaseAuth.instance.currentUser.email;
+    print("Email: "+ uemail.toString());
+    print(uid);
+    print(uemail);
+    userIdAndEmail(uid.toString(), uemail.toString());
+
+    return HomePage();
     }
     return SignInPage();
   }
